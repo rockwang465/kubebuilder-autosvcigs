@@ -1,0 +1,27 @@
+# permissions for end users to view autosvcigs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: autosvcigs-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: kubebuilder-autosvcigs
+    app.kubernetes.io/part-of: kubebuilder-autosvcigs
+    app.kubernetes.io/managed-by: kustomize
+  name: autosvcigs-viewer-role
+rules:
+- apiGroups:
+  - auto.rock.com
+  resources:
+  - autosvcigs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - auto.rock.com
+  resources:
+  - autosvcigs/status
+  verbs:
+  - get
